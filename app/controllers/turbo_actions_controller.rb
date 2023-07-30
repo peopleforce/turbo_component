@@ -20,7 +20,7 @@ class TurboActionsController < ::ActionController::Base
     component_instance.streams = []
 
     if params[:component_action].present?
-      action_params = params[:action_params] || []
+      action_params = params[:component_action_params] || []
       component_instance.public_send(params[:component_action], *action_params)
     end
 

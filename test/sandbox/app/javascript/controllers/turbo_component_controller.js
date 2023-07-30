@@ -20,6 +20,7 @@ export default class extends Controller {
             component_name: this.componentNameValue,
             component_id: this.componentIdValue,
             component_action: action,
+            component_action_params: event.params.actionParams || [],
             snapshot: this.snapshotJsonValue
         }
 
