@@ -30,5 +30,6 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency "minitest", "~> 5.19.0"
 
   spec.add_dependency "activesupport", ">= 6.1.0"
+  spec.add_dependency "turbo-rails", ">= 1.4.0"
   spec.add_dependency "i18n", ">= 1.6"
 end

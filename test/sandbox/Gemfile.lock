@@ -4,6 +4,7 @@ PATH
     turbo_component (0.1.0)
       activesupport (>= 6.1.0)
       i18n (>= 1.6)
+      turbo-rails (>= 1.4.0)
 
 GEM
   remote: https://rubygems.org/

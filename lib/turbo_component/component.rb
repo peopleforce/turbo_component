@@ -9,6 +9,7 @@ module TurboComponent
 
     attribute :id, :string
     attribute :params, array: true, default: []
+    attribute :streams, array: true, default: []
 
     def initialize(params = {})
       super
