@@ -1,0 +1,365 @@
+AllCops:
+  TargetRubyVersion: 2.7.0
+
+# https://edgeguides.rubyonrails.org/contributing_to_ruby_on_rails.html#follow-the-coding-conventions
+
+# No blank line after access modifiers
+Layout/EmptyLinesAroundAccessModifier:
+  EnforcedStyle: only_before
+
+# Hard to use with WSL2
+Layout/EndOfLine:
+  Enabled: false
+
+# First element shall always be relative to the first position of the line where the opening bracket is
+Layout/FirstArrayElementIndentation:
+  EnforcedStyle: consistent
+
+# First key shall always be relative to the first position of the line where the opening brace is
+Layout/FirstHashElementIndentation:
+  EnforcedStyle: consistent
+
+# Table-like left alignment of keys, hash rockets, and values
+Layout/HashAlignment:
+  EnforcedHashRocketStyle: table
+
+# Method definitions after access modifiers isolated calls need one extra level of indentation
+Layout/IndentationConsistency:
+  EnforcedStyle: indented_internal_methods
+
+# The second operand should be indented is binary operations that span more than one line
+Layout/MultilineOperationIndentation:
+  EnforcedStyle: indented
+
+# Braces around single line blocks, do..end around multi-line blocks, except for multi-line blocks
+# whose return value is being chained with another method
+Style/BlockDelimiters:
+  EnforcedStyle: braces_for_chaining
+
+# Enforce the block end operator to go on its own line in empty methods
+Style/EmptyMethod:
+  EnforcedStyle: expanded
+
+# Enforce absence of braces around hash literal as a last array item
+Style/HashAsLastArrayItem:
+  EnforcedStyle: no_braces
+
+# Use double quotes for string literals
+Style/StringLiterals:
+  EnforcedStyle: double_quotes
+
+# Use double quotes inside expressions in interpolated strings
+Style/StringLiteralsInInterpolation:
+  EnforcedStyle: double_quotes
+
+# Use %w or %W for arrays of words whose element count is greater than or equal to 5
+Style/WordArray:
+  MinSize: 5
+
+Style/BlockComments:
+  Enabled: false
+
+Style/ClassAndModuleChildren:
+  Enabled: false
+
+Style/Documentation:
+  Enabled: false
+
+Style/HashSyntax:
+  EnforcedShorthandSyntax: never
+
+Style/FrozenStringLiteralComment:
+  Enabled: false
+
+Bundler/OrderedGems:
+  Enabled: false
+
+Metrics/AbcSize:
+  Enabled: false
+
+Metrics/BlockLength:
+  Enabled: false
+
+Metrics/BlockNesting:
+  Enabled: false
+
+Metrics/ClassLength:
+  Enabled: false
+
+Metrics/CyclomaticComplexity:
+  Enabled: false
+
+Metrics/MethodLength:
+  Enabled: false
+
+Metrics/ModuleLength:
+  Enabled: false
+
+Metrics/ParameterLists:
+  Enabled: false
+
+Metrics/PerceivedComplexity:
+  Enabled: false
+
+# ┌──────────────────────────────────────────────────────────┐
+# │TODO: Consider refactoring and applying the following cops│
+# └──────────────────────────────────────────────────────────┘
+
+Style/ClassVars:
+  Enabled: false
+
+Style/CombinableLoops:
+  Enabled: false
+
+Style/For:
+  Enabled: false
+
+Style/FloatDivision:
+  Enabled: false
+
+Style/GlobalVars:
+  Enabled: false
+
+Style/GuardClause:
+  Enabled: false
+
+Style/HashLikeCase:
+  Enabled: false
+
+Style/IdenticalConditionalBranches:
+  Enabled: false
+
+Style/IfUnlessModifier:
+  Enabled: false
+
+Style/InfiniteLoop:
+  Enabled: false
+
+Style/InverseMethods:
+  Enabled: false
+
+Style/KeywordParametersOrder:
+  Enabled: false
+
+Style/Lambda:
+  Enabled: false
+
+Style/LineEndConcatenation:
+  Enabled: false
+
+Style/MixinUsage:
+  Enabled: false
+
+Style/NegatedIf:
+  Enabled: false
+
+Style/Next:
+  Enabled: false
+
+Style/Not:
+  Enabled: false
+
+Style/NumericLiterals:
+  Enabled: false
+
+Style/MultilineBlockChain:
+  Enabled: false
+
+Style/MultilineIfModifier:
+  Enabled: false
+
+Style/MultipleComparison:
+  Enabled: false
+
+Style/MultilineTernaryOperator:
+  Enabled: false
+
+Style/MutableConstant:
+  Enabled: false
+
+Style/NestedParenthesizedCalls:
+  Enabled: false
+
+Style/NestedTernaryOperator:
+  Enabled: false
+
+Style/NumericLiteralPrefix:
+  Enabled: false
+
+Style/NumericPredicate:
+  Enabled: false
+
+Style/OptionalBooleanParameter:
+  Enabled: false
+
+Style/OrAssignment:
+  Enabled: false
+
+Style/PerlBackrefs:
+  Enabled: false
+
+Style/PreferredHashMethods:
+  Enabled: false
+
+Style/RaiseArgs:
+  Enabled: false
+
+Style/RedundantAssignment:
+  Enabled: false
+
+Style/RedundantFetchBlock:
+  Enabled: false
+
+Style/RedundantInterpolation:
+  Enabled: false
+
+Style/RedundantRegexpEscape:
+  Enabled: false
+
+Style/RedundantSelf:
+  Enabled: false
+
+Style/RegexpLiteral:
+  Enabled: false
+
+Style/RescueModifier:
+  Enabled: false
+
+Style/RescueStandardError:
+  Enabled: false
+
+Style/SafeNavigation:
+  Enabled: false
+
+Style/SignalException:
+  Enabled: false
+
+Style/SlicingWithRange:
+  Enabled: false
+
+Style/SoleNestedConditional:
+  Enabled: false
+
+Style/StringConcatenation:
+  Enabled: false
+
+Style/StructInheritance:
+  Enabled: false
+
+Style/SymbolArray:
+  Enabled: false
+
+Style/SymbolProc:
+  Enabled: false
+
+Style/UnlessElse:
+  Enabled: true
+
+Style/WhileUntilDo:
+  Enabled: false
+
+Style/WhileUntilModifier:
+  Enabled: false
+
+Lint/AssignmentInCondition:
+  Enabled: false
+
+Lint/BinaryOperatorWithIdenticalOperands:
+  Enabled: false
+
+Lint/BooleanSymbol:
+  Enabled: false
+
+Lint/CircularArgumentReference:
+  Enabled: false
+
+Lint/DisjunctiveAssignmentInConstructor:
+  Enabled: false
+
+Lint/DuplicateMethods:
+  Enabled: false
+
+Lint/EmptyConditionalBody:
+  Enabled: false
+
+Lint/EmptyWhen:
+  Enabled: false
+
+Style/IfInsideElse:
+  Enabled: false
+
+Lint/IneffectiveAccessModifier:
+  Enabled: false
+
+Lint/MissingSuper:
+  Enabled: false
+
+Lint/NestedMethodDefinition:
+  Enabled: false
+
+Lint/NonDeterministicRequireOrder:
+  Enabled: false
+
+Lint/ParenthesesAsGroupedExpression:
+  Enabled: false
+
+Lint/RedundantWithIndex:
+  Enabled: false
+
+Lint/RequireParentheses:
+  Enabled: false
+
+Lint/RescueException:
+  Enabled: false
+
+Lint/ShadowedArgument:
+  Enabled: false
+
+Lint/SuppressedException:
+  Enabled: false
+
+Lint/ToJSON:
+  Enabled: false
+
+Lint/UnusedBlockArgument:
+  Enabled: false
+
+Lint/UnusedMethodArgument:
+  Enabled: false
+
+Lint/UriRegexp:
+  Enabled: false
+
+Lint/UselessAccessModifier:
+  Enabled: false
+
+Layout/LineLength:
+  Enabled: false
+
+Naming/AccessorMethodName:
+  Enabled: false
+
+Naming/MemoizedInstanceVariableName:
+  Enabled: false
+
+Naming/MethodParameterName:
+  Enabled: false
+
+Naming/PredicateName:
+  Enabled: false
+
+Naming/VariableNumber:
+  Enabled: false
+
+# ┌──────────────────────────────────────────────────────────┐
+# │Enabled pending cops. Remove when added to default config │
+# └──────────────────────────────────────────────────────────┘
+
+Style/StringChars:
+  Enabled: true
+
+Style/RedundantInitialize:
+  Enabled: true
+
+Style/CaseEquality:
+  Enabled: false

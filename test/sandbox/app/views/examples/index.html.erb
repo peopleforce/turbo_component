@@ -1,0 +1,23 @@
+<div class="overflow-hidden rounded-lg bg-white shadow my-8">
+  <div class="px-4 py-5 sm:p-6">
+    <%= render WelcomeComponent.new(full_name: "Andrew Cetinic") %>
+  </div>
+</div>
+
+<div class="overflow-hidden rounded-lg bg-white shadow my-8">
+  <div class="px-4 py-5 sm:p-6">
+    <%= render SearchComponent.new %>
+  </div>
+</div>
+
+<div class="overflow-hidden rounded-lg bg-white shadow my-8">
+  <div class="px-4 py-5 sm:p-6">
+    <%= render CounterComponent.new %>
+  </div>
+</div>
+
+<div class="overflow-hidden rounded-lg bg-white shadow my-8">
+  <div class="px-4 py-5 sm:p-6">
+    <%= render TodosComponent.new(todos: ["Buy milk"]) %>
+  </div>
+</div>
