@@ -1,7 +1,7 @@
 class SearchComponent < TurboComponent::Component
   attribute :query, :string
 
-  def before_render
+  def search
     @items = items
 
     if query.present?

@@ -16,12 +16,20 @@ export default class extends Controller {
     async handle(event) {
         const action = event.params.action;
 
+        // get all model binded attributes
+        let modelAttributes = {}
+        this.element.querySelectorAll('[data-turbo-component-model]').forEach((element) => {
+            const attributeName = element.getAttribute('data-turbo-component-model')
+            modelAttributes[attributeName] = element.value
+        })
+
         let data = {
             component_name: this.componentNameValue,
             component_id: this.componentIdValue,
             component_action: action,
             component_action_params: event.params.actionParams || [],
-            snapshot: this.snapshotJsonValue
+            snapshot: this.snapshotJsonValue,
+            updates: modelAttributes
         }
 
         const request = new FetchRequest('post', '/turbo_actions/update', {

@@ -1,17 +1,19 @@
 <div>
-  <input wire:model.live="query" type="search" placeholder="Search fruits" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+  <input data-action="input->turbo-component#handle"
+         data-turbo-component-action-param="search"
+         data-turbo-component-model="query"
+         type="search"
+         value="<%= query %>"
+         placeholder="Search fruits..."
+         class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
 </div>
 
-<div x-cloak x-show="$wire.query">
-  <div wire:loading>Searching for "<%= query %>"...</div>
+<% if query.present? && @items.present? %>
+  <div>Found <%= @items.count %> results for "<%= query %>"</div>
 
-  <div wire:loading.remove>
-    <div>Found <%= @items.count %> results for "<%= query %>"</div>
-
-    <ul role="list" class="-mx-2 space-y-1">
-      <% for item in @items %>
-        <li class="text-gray-700 hover:text-indigo-600 hover:bg-gray-50 group flex gap-x-3 rounded-md p-2 pl-3 text-sm leading-6 font-semibold"><%= item %></li>
-      <% end %>
-    </ul>
-  </div>
-</div>
+  <ul role="list" class="-mx-2 space-y-1">
+    <% for item in @items %>
+      <li class="text-gray-700 hover:text-indigo-600 hover:bg-gray-50 group flex gap-x-3 rounded-md p-2 pl-3 text-sm leading-6 font-semibold"><%= item %></li>
+    <% end %>
+  </ul>
+<% end %>

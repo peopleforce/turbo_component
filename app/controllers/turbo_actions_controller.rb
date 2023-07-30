@@ -19,6 +19,11 @@ class TurboActionsController < ::ActionController::Base
     # clear streams
     component_instance.streams = []
 
+    # update attributes
+    params[:updates].each do |k, v|
+      component_instance.public_send("#{k}=", v)
+    end
+
     if params[:component_action].present?
       action_params = params[:component_action_params] || []
       component_instance.public_send(params[:component_action], *action_params)
