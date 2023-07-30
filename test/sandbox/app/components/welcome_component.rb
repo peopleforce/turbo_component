@@ -1,4 +1,4 @@
-class WelcomeComponent < ActionWire::Component
+class WelcomeComponent < TurboComponent::Component
   attribute :full_name, :string
 
   def template

@@ -1,4 +1,4 @@
-class TodosComponent < ActionWire::Component
+class TodosComponent < TurboComponent::Component
   attribute :todos, array: true, default: []
 
   def noop

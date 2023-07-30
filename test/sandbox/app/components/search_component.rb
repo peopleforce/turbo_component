@@ -1,4 +1,4 @@
-class SearchComponent < ActionWire::Component
+class SearchComponent < TurboComponent::Component
   attribute :query, :string
 
   def before_render

@@ -56,7 +56,9 @@ module TurboComponent
                           end
 
       <<~CONTENT.html_safe
-        <div wire:snapshot="#{ CGI::escapeHTML(snapshot)}" wire:effects="[]" wire:id="#{id}">
+        <div data-controller="turbo-component" 
+        data-turbo-component-snapshot-value="#{ CGI::escapeHTML(snapshot)}" 
+        data-turbo-component-component-id-value="#{id}">
                 #{rendered_template}
         </div>
       CONTENT

@@ -1,3 +1,3 @@
-ActionWire::Engine.routes.draw do
+TurboComponent::Engine.routes.draw do
   post "/update", to: "turbo_actions#create"
 end

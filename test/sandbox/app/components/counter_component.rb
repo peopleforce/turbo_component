@@ -1,4 +1,4 @@
-class CounterComponent < ActionWire::Component
+class CounterComponent < TurboComponent::Component
   attribute :count, :integer, default: 0
 
   def template
