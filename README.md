@@ -35,3 +35,5 @@ class CounterComponent < TurboComponent::Component
   end
 end
 ```
+
+![image](https://github.com/peopleforce/turbo_component/assets/571649/046faed6-7ed1-4fd4-8a98-269dac1200db)
