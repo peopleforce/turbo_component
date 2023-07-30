@@ -36,14 +36,10 @@ module TurboComponent
         memo: {
           id: id,
           name: self.class.name,
-          path: "/",
-          method: "GET",
           children: [],
           "lazyLoaded": false,
-          errors: [],
-          locale: "en",
-        },
-        checksum: "checksum"
+          errors: []
+        }
       }.to_json
 
       # render erb file to string
@@ -56,9 +52,11 @@ module TurboComponent
                           end
 
       <<~CONTENT.html_safe
-        <div data-controller="turbo-component" 
+        <div id="turbo-component-#{id}" 
+        data-controller="turbo-component" 
         data-turbo-component-snapshot-value="#{ CGI::escapeHTML(snapshot)}" 
-        data-turbo-component-component-id-value="#{id}">
+        data-turbo-component-component-id-value="#{id}"
+        data-turbo-component-component-name-value="#{self.class.name}">
                 #{rendered_template}
         </div>
       CONTENT

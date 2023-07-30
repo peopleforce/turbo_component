@@ -1,18 +1,44 @@
-import { Controller } from "@hotwired/stimulus"
+import {Controller} from "@hotwired/stimulus"
+import {FetchRequest} from '@rails/request.js'
 
 export default class extends Controller {
-  static values = {
-    componentId: String,
-    snapshot: String,
-    snapshotJson: Object
-  }
+    static values = {
+        componentId: String,
+        componentName: String,
+        snapshot: String,
+        snapshotJson: Object
+    }
 
-  connect() {
-    this.snapshotJsonValue = JSON.parse(this.snapshotValue)
-    console.log("snapshotJsonValue", this.snapshotJsonValue)
-  }
+    connect() {
+        this.snapshotJsonValue = JSON.parse(this.snapshotValue)
+    }
 
-  disconnect() {
+    async handle(event) {
+        const action = event.params.action;
 
-  }
+        let data = {
+            component_name: this.componentNameValue,
+            component_id: this.componentIdValue,
+            component_action: action,
+            snapshot: this.snapshotJsonValue
+        }
+
+        const request = new FetchRequest('post', '/turbo_actions/update', {
+            body: JSON.stringify(data),
+            responseKind: "turbo-stream"
+        })
+
+        const response = await request.perform()
+        if (response.ok) {
+            const body = await response.text
+            // Do whatever do you want with the response body
+            // You also are able to call `response.html` or `response.json`, be aware that if you call `response.json` and the response contentType isn't `application/json` there will be raised an error.
+        }
+    }
+
+    disconnect() {
+
+    }
+
+    // catch all actions
 }

@@ -6,50 +6,23 @@ class TurboActionsController < ::ActionController::Base
   end
 
   def create
-    components = []
+    component_instance = params[:component_name].constantize.new
 
-    for component in params[:components]
-      # json parse with symbols
-      snapshot = JSON.parse(component[:snapshot])
+    component_instance.before_render if defined?(component_instance.before_render)
 
-      data = snapshot["data"]
-      component_instance = snapshot["memo"]["name"].constantize.new
-
-      component_instance.before_render if defined?(component_instance.before_render)
-
-      data.each do |k, v|
-        component_instance.public_send("#{k}=", v)
-      end
-
-      # updates
-      if component[:updates].present?
-        component[:updates].each do |k, v|
-          component_instance.public_send("#{k}=", v)
-        end
-      end
-
-      # calls
-      for call in component[:calls]
-        params = call[:params] || []
-        component_instance.public_send(call[:method], *params)
-      end
-
-      view = ActionView::Base.new(ActionView::LookupContext.new([]), {}, nil)
-
-      components << {
-        effects: {
-          html: "<div wire:id=\"#{snapshot["memo"]["id"]}\">#{component_instance.render_in(view)}</div>",
-          returns: []
-        },
-        snapshot: snapshot.to_json
-      }
+    params[:snapshot][:data].each do |k, v|
+      component_instance.public_send("#{k}=", v)
     end
 
-    render json: {
-      components: components,
-      effects: {
-        html: ""
-      }
-    }
+    if params[:component_action].present?
+      action_params = params[:action_params] || []
+      component_instance.public_send(params[:component_action], *action_params)
+    end
+
+    view = ActionView::Base.new(ActionView::LookupContext.new([]), {}, nil)
+
+    render turbo_stream: [
+      turbo_stream.replace("turbo-component-#{params[:component_id]}", component_instance.render_in(view))
+    ]
   end
 end
