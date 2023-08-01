@@ -25,7 +25,7 @@ class TurboActionsController < ::ActionController::Base
     end
 
     if params[:component_action].present?
-      action_params = params[:component_action_params] || []
+      action_params = params[:component_action_args] || []
       component_instance.public_send(params[:component_action], *action_params)
     end
 

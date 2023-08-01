@@ -11,10 +11,39 @@ export default class extends Controller {
 
     connect() {
         this.snapshotJsonValue = JSON.parse(this.snapshotValue)
+
+        this.element.querySelectorAll('[data-turbo-action]').forEach((element) => {
+            const turboAction = element.getAttribute('data-turbo-action')
+            modelAttributes[attributeName] = element.value
+        })
     }
 
     async handle(event) {
-        const action = event.params.action;
+        let action = event.params.action;
+        let args= []
+        if (action.includes('(') && action.includes(')')) {
+            // replace all double spaces with single space
+            action = action.replaceAll('  ', ' ')
+            action = action.replaceAll(', ', ',')
+            args = action.substring(action.indexOf('(') + 1, action.indexOf(')')).split(',')
+            action = action.substring(0, action.indexOf('('))
+        }
+
+        // cast args as ints if they are ints
+        args = args.map((arg) => {
+            if (!isNaN(arg)) {
+                return parseInt(arg)
+            } else if(arg === 'true') {
+                return true
+            } else if(arg === 'false') {
+                return false
+            } else if(arg === 'null') {
+                return null
+            } else {
+                return arg.replaceAll("'", "")
+            }
+            return arg
+        })
 
         // get all model binded attributes
         let modelAttributes = {}
@@ -27,7 +56,7 @@ export default class extends Controller {
             component_name: this.componentNameValue,
             component_id: this.componentIdValue,
             component_action: action,
-            component_action_params: event.params.actionParams || [],
+            component_action_args: args,
             snapshot: this.snapshotJsonValue,
             updates: modelAttributes
         }

@@ -8,8 +8,7 @@
       <%= r %>
 
       <button data-action="click->turbo-component#handle"
-              data-turbo-component-action-param="destroy_todo"
-              data-turbo-component-action-params-param="<%= [i] %>"
+              data-turbo-component-action-param="destroy_todo(<%= i %>)"
               class="rounded-md bg-indigo-600 px-2.5 py-1.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
         Delete
       </button>
