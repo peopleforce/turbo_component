@@ -26,12 +26,10 @@ class CounterComponent < TurboComponent::Component
 
   def increment
     self.count += 1
-    streams << turbo_stream_action_tag("update", target: "last-action", template: "increment")
   end
 
   def decrement
     self.count -= 1
-    streams << turbo_stream_action_tag("update", target: "last-action", template: "decrement")
   end
 end
 ```
