@@ -47,7 +47,7 @@ GEM
       nokogiri (>= 1.5.9)
     method_source (1.0.0)
     mini_portile2 (2.8.2)
-    minitest (5.20.0)
+    minitest (5.22.2)
     nokogiri (1.14.3)
       mini_portile2 (~> 2.8.0)
       racc (~> 1.4)
@@ -104,7 +104,7 @@ PLATFORMS
 DEPENDENCIES
   actionpack (>= 6.1.0)
   bundler (~> 2.0)
-  minitest (~> 5.20.0)
+  minitest (~> 5.22.2)
   rake (~> 13.0)
   rubocop (~> 1.59)
   turbo_component!
