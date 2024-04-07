@@ -3,8 +3,7 @@ version: '3'
 services:
   app:
     build:
-      context: /test/dummy
-    working_dir: /test/dummy
+      context: .
     image: ruby:3.1.4
     volumes:
       - ./:/usr/src/app
