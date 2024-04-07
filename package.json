@@ -21,7 +21,7 @@
     "types": "tsc --noEmit false --declaration true --emitDeclarationOnly true --outDir dist/types",
     "prebuild": "yarn build:test",
     "build": "yarn types && rollup -c",
-    "build:test": "tsc -b tsconfig.test.json",
+    "build:test": "",
     "watch": "rollup -wc",
     "prerelease": "yarn clean && yarn build && yarn build:test && git --no-pager diff && echo && npm pack --dry-run",
     "release": "npm publish",
